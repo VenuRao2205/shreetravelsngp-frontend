@@ -7,7 +7,7 @@ const Contact = () => {
     name: "",
     email: "",
     number: "",
-    query: "",
+    query: "", // eslint-disable-line no-unused-vars
   });
   const [error, setError] = useState(false);
   const [show, setShow] = useState({ isVisible: false, message: "" });
