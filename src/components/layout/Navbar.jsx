@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import logo from "../../images/shree.webp";
-import data from "../../mocks/data.json";
 
 const Navbar = () => {
   const navigate = useNavigate();
