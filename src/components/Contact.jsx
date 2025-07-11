@@ -40,6 +40,7 @@ const Contact = () => {
     } finally {
       setLoading(false);
     }
+  };
 
   const handleChange = (e) => {
     setContact((prev) => ({
