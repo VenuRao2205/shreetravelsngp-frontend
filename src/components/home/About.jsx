@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, CheckCircle, Award, Users, Shield, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, Award, Users, Shield, Clock, Star, Phone } from "lucide-react";
 import aboutImage from "../../images/gif.jpeg";
 
 const About = () => {
@@ -29,7 +29,7 @@ const About = () => {
     },
     {
       icon: Clock,
-      text: "24/7 customer support",
+      text: "24/7 customer support available",
       color: "accent"
     },
     {
@@ -40,10 +40,10 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "30+", label: "Years of Excellence", icon: Award },
-    { number: "10K+", label: "Happy Customers", icon: Users },
-    { number: "24/7", label: "Support Available", icon: Clock },
-    { number: "100%", label: "Satisfaction Rate", icon: Shield }
+    { number: "30+", label: "Years of Excellence", icon: Award, color: "primary" },
+    { number: "10K+", label: "Happy Customers", icon: Users, color: "accent" },
+    { number: "24/7", label: "Support Available", icon: Clock, color: "success" },
+    { number: "100%", label: "Satisfaction Rate", icon: Shield, color: "primary" }
   ];
 
   const getColorClasses = (color) => {
@@ -59,6 +59,43 @@ const About = () => {
     }
   };
 
+  const getStatColorClasses = (color) => {
+    switch (color) {
+      case 'primary':
+        return {
+          bg: 'bg-primary-100',
+          icon: 'text-primary-600',
+          number: 'text-primary-600',
+          hoverBg: 'group-hover:bg-primary-500',
+          hoverIcon: 'group-hover:text-white'
+        };
+      case 'accent':
+        return {
+          bg: 'bg-accent-100',
+          icon: 'text-accent-600',
+          number: 'text-accent-600',
+          hoverBg: 'group-hover:bg-accent-500',
+          hoverIcon: 'group-hover:text-white'
+        };
+      case 'success':
+        return {
+          bg: 'bg-success-100',
+          icon: 'text-success-600',
+          number: 'text-success-600',
+          hoverBg: 'group-hover:bg-success-500',
+          hoverIcon: 'group-hover:text-white'
+        };
+      default:
+        return {
+          bg: 'bg-primary-100',
+          icon: 'text-primary-600',
+          number: 'text-primary-600',
+          hoverBg: 'group-hover:bg-primary-500',
+          hoverIcon: 'group-hover:text-white'
+        };
+    }
+  };
+
   return (
     <section className="py-32 bg-white relative overflow-hidden">
       {/* Background Decorations */}
@@ -69,25 +106,25 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-6 py-3 rounded-full text-sm font-semibold mb-8">
-              <Award size={16} />
+            <div className="inline-flex items-center gap-3 bg-primary-100 text-primary-700 px-8 py-4 rounded-full text-base font-semibold mb-8">
+              <Award size={18} />
               <span>About Shree Travels</span>
             </div>
             
             <h2 className="mb-8">
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">Excellence.</span> 
-              <span className="text-secondary-900"> Reliability. </span>
+              <span className="text-gray-900"> Reliability. </span>
               <span className="bg-gradient-to-r from-accent-500 to-success-500 bg-clip-text text-transparent">Trust.</span>
             </h2>
             
-            <p className="text-xl text-secondary-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Welcome to Shree Travels, your trusted partner in corporate transportation solutions. 
               With <span className="font-semibold text-primary-600">30 years of excellence</span> in the industry, 
               we specialize in providing reliable, efficient, and comfortable cab services tailored 
               specifically for corporate clients and discerning individuals.
             </p>
 
-            <p className="text-lg text-secondary-600 mb-10 leading-relaxed">
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed">
               Our commitment to quality, safety, and customer satisfaction has made us the 
               <span className="font-semibold text-accent-600"> preferred choice for businesses</span> across Nagpur. 
               We don't just provide transportation; we deliver experiences that exceed expectations.
@@ -97,10 +134,10 @@ const About = () => {
             <div className="space-y-4 mb-10">
               {highlights.map((highlight, index) => (
                 <div key={index} className="flex items-start gap-4 group">
-                  <div className="p-2 bg-secondary-100 rounded-xl group-hover:bg-primary-100 transition-colors duration-300">
+                  <div className="p-2 bg-gray-100 rounded-xl group-hover:bg-primary-100 transition-colors duration-300 shadow-sm">
                     <highlight.icon size={20} className={`${getColorClasses(highlight.color)} transition-colors duration-300`} />
                   </div>
-                  <span className="text-secondary-700 font-medium leading-relaxed group-hover:text-secondary-900 transition-colors duration-300">
+                  <span className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                     {highlight.text}
                   </span>
                 </div>
@@ -111,7 +148,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => navigate("/services")}
-                className="btn btn-primary btn-lg group relative overflow-hidden"
+                className="btn btn-primary btn-lg group relative overflow-hidden shadow-lg"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   Explore Services
@@ -121,8 +158,9 @@ const About = () => {
               </button>
               <button
                 onClick={() => navigate("/contact")}
-                className="btn btn-outline btn-lg group"
+                className="btn btn-outline btn-lg group shadow-lg"
               >
+                <Phone size={18} />
                 Get Quote
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </button>
@@ -143,33 +181,46 @@ const About = () => {
                   />
                   
                   {/* Floating Stats */}
-                  <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce" style={{ animationDelay: '1s' }}>
-                    <div className="text-2xl font-bold text-primary-600">30+</div>
-                    <div className="text-sm text-secondary-600">Years</div>
+                  <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce border border-primary-200" style={{ animationDelay: '1s' }}>
+                    <div className="flex items-center gap-2">
+                      <Star size={20} className="text-accent-500" />
+                      <div>
+                        <div className="text-2xl font-bold text-primary-600">30+</div>
+                        <div className="text-sm text-gray-600">Years</div>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce" style={{ animationDelay: '2s' }}>
-                    <div className="text-2xl font-bold text-accent-600">10K+</div>
-                    <div className="text-sm text-secondary-600">Customers</div>
+                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce border border-accent-200" style={{ animationDelay: '2s' }}>
+                    <div className="flex items-center gap-2">
+                      <Users size={20} className="text-primary-500" />
+                      <div>
+                        <div className="text-2xl font-bold text-accent-600">10K+</div>
+                        <div className="text-sm text-gray-600">Customers</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-4 mt-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="bg-gradient-to-br from-white to-secondary-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-primary-100 rounded-lg group-hover:bg-primary-500 transition-colors duration-300">
-                        <stat.icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                {stats.map((stat, index) => {
+                  const colors = getStatColorClasses(stat.color);
+                  return (
+                    <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`p-2 ${colors.bg} rounded-lg ${colors.hoverBg} transition-colors duration-300`}>
+                          <stat.icon size={20} className={`${colors.icon} ${colors.hoverIcon} transition-colors duration-300`} />
+                        </div>
+                        <div className={`text-2xl font-bold ${colors.number} group-hover:scale-110 transition-transform duration-300`}>
+                          {stat.number}
+                        </div>
                       </div>
-                      <div className="text-2xl font-bold text-primary-600 group-hover:scale-110 transition-transform duration-300">
-                        {stat.number}
-                      </div>
+                      <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                     </div>
-                    <div className="text-sm text-secondary-600 font-medium">{stat.label}</div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

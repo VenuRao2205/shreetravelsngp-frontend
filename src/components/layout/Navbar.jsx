@@ -27,25 +27,25 @@ const Navbar = () => {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="bg-secondary-900 text-white py-2 hidden lg:block">
+      <div className="bg-gray-900 text-white py-2 hidden lg:block">
         <div className="container">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-primary-400" />
+                <Phone size={14} className="text-accent-400" />
                 <span>+91 9822236802</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-primary-400" />
+                <Mail size={14} className="text-accent-400" />
                 <span>shreetravelsngp@yahoo.com</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-primary-400" />
+                <MapPin size={14} className="text-accent-400" />
                 <span>Nagpur, Maharashtra</span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Clock size={14} className="text-primary-400" />
+              <Clock size={14} className="text-accent-400" />
               <span>Mon-Sat: 10:00 AM - 10:00 PM</span>
             </div>
           </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
       {/* Main Navigation */}
       <nav className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-secondary-200' 
+          ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-200' 
           : 'bg-white shadow-sm'
       }`}>
         <div className="container">
@@ -68,7 +68,7 @@ const Navbar = () => {
                   alt="Shree Travels" 
                   className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
               </div>
             </NavLink>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                   to={item.path}
                   className={({ isActive }) =>
                     `relative font-medium text-lg transition-all duration-300 hover:text-primary-600 group ${
-                      isActive ? 'text-primary-600' : 'text-secondary-700'
+                      isActive ? 'text-primary-600' : 'text-gray-700'
                     }`
                   }
                 >
@@ -104,7 +104,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-3 rounded-xl hover:bg-secondary-100 transition-colors duration-200 group"
+              className="lg:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors duration-200 group"
             >
               <div className="relative w-6 h-6">
                 <Menu 
@@ -128,20 +128,20 @@ const Navbar = () => {
         <div className={`lg:hidden transition-all duration-500 ease-in-out overflow-hidden ${
           isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="bg-white border-t border-secondary-200 shadow-xl">
+          <div className="bg-white border-t border-gray-200 shadow-xl">
             <div className="container py-6">
               <div className="flex flex-col gap-6">
                 {/* Mobile Contact Info */}
-                <div className="grid grid-cols-1 gap-4 pb-6 border-b border-secondary-200">
-                  <div className="flex items-center gap-3 text-sm text-secondary-600">
+                <div className="grid grid-cols-1 gap-4 pb-6 border-b border-gray-200">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Phone size={16} className="text-primary-500" />
                     <span>+91 9822236802</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-secondary-600">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Mail size={16} className="text-primary-500" />
                     <span>shreetravelsngp@yahoo.com</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-secondary-600">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Clock size={16} className="text-primary-500" />
                     <span>Mon-Sat: 10:00 AM - 10:00 PM</span>
                   </div>
@@ -155,7 +155,7 @@ const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
                       `font-medium text-lg py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 ${
-                        isActive ? 'text-primary-600 bg-primary-50' : 'text-secondary-700'
+                        isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
                       }`
                     }
                   >
